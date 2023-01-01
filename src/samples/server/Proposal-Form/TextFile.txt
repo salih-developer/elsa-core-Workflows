@@ -1,0 +1,14 @@
+add-migration ProposalMigration -context ProposalDbContext
+update-database ProposalMigration -context ProposalDbContext
+
+add-migration ProposalMigration -context ProposalDbContext
+update-database ProposalMigration -context ProposalDbContext
+
+add-migration ProposalMigrationv1 -context ProposalDbContext
+update-database ProposalMigrationv1 -context ProposalDbContext
+
+
+add-migration ProposalMigrationv2 -context ProposalDbContext
+update-database ProposalMigrationv2 -context ProposalDbContext
+
+

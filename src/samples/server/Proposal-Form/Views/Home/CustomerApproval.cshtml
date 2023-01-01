@@ -1,0 +1,33 @@
+@model List<Proposal.Form.Models.Customer>
+@{
+}
+
+<table class="monaco-table">
+    <thead>
+        <tr>
+            <td>id</td>
+            <td>Name</td>
+            <td>Surname</td>
+            <td>CompanyName</td>
+            <td>Address</td>
+            <td>IsApproval</td>
+            <td>Link</td>
+        </tr>
+    </thead>
+
+    @{
+
+        foreach (Proposal.Form.Models.Customer item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Name</td>
+                <td>@item.Surname</td>
+                <td>@item.CompanyName</td>
+                <td>@item.Address</td>
+                <td>@item.IsApproval</td>
+                <td>@Html.ActionLink("Onayla","Approval","Home",new{id=item.Id})</td>
+            </tr>
+        }
+    }
+</table>

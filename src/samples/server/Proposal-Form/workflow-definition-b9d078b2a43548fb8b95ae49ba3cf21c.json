@@ -1,0 +1,246 @@
+{
+  "$id": "1",
+  "definitionId": "b9d078b2a43548fb8b95ae49ba3cf21c",
+  "versionId": "86c2803d9e3f4476a539070bcfbf9566",
+  "name": "Proposal",
+  "displayName": "Proposal",
+  "version": 3,
+  "variables": {
+    "$id": "2",
+    "data": {}
+  },
+  "customAttributes": {
+    "$id": "3",
+    "data": {}
+  },
+  "isSingleton": false,
+  "persistenceBehavior": "WorkflowBurst",
+  "deleteCompletedInstances": false,
+  "isPublished": true,
+  "isLatest": true,
+  "createdAt": "2023-01-01T21:45:16.7429009Z",
+  "activities": [
+    {
+      "$id": "4",
+      "activityId": "a9d069e0-de78-4a67-97c8-89725bdab814",
+      "type": "SignalReceived",
+      "displayName": "Take proposal",
+      "persistWorkflow": false,
+      "loadWorkflowContext": false,
+      "saveWorkflowContext": false,
+      "properties": [
+        {
+          "$id": "5",
+          "name": "Signal",
+          "expressions": {
+            "$id": "6",
+            "Literal": "take_proposal"
+          }
+        }
+      ],
+      "propertyStorageProviders": {
+        "$id": "7"
+      }
+    },
+    {
+      "$id": "8",
+      "activityId": "6644935c-d46b-4073-9ab7-f35718023307",
+      "type": "State",
+      "name": "Approval_proposal",
+      "displayName": "Approval_proposal",
+      "persistWorkflow": false,
+      "loadWorkflowContext": false,
+      "saveWorkflowContext": false,
+      "properties": [
+        {
+          "$id": "9",
+          "name": "StateName",
+          "expressions": {
+            "$id": "10",
+            "Literal": "Approval_proposal"
+          }
+        },
+        {
+          "$id": "11",
+          "name": "Transitions",
+          "expressions": {
+            "$id": "12",
+            "Json": "[\"Approval_proposal\"]"
+          }
+        }
+      ],
+      "propertyStorageProviders": {
+        "$id": "13"
+      }
+    },
+    {
+      "$id": "14",
+      "activityId": "988041f3-3e7e-4477-a5ec-76ff5f84daad",
+      "type": "SignalReceived",
+      "displayName": "Signal Received",
+      "persistWorkflow": false,
+      "loadWorkflowContext": false,
+      "saveWorkflowContext": false,
+      "properties": [
+        {
+          "$id": "15",
+          "name": "Signal",
+          "expressions": {
+            "$id": "16",
+            "Literal": "Approval_Proposal"
+          }
+        }
+      ],
+      "propertyStorageProviders": {
+        "$id": "17"
+      }
+    },
+    {
+      "$id": "18",
+      "activityId": "0ce6d53c-dc11-4c5a-84b2-bd1c0db69fad",
+      "type": "SendHttpRequest",
+      "displayName": "Send HTTP Request",
+      "persistWorkflow": false,
+      "loadWorkflowContext": false,
+      "saveWorkflowContext": false,
+      "properties": [
+        {
+          "$id": "19",
+          "name": "Url",
+          "expressions": {
+            "$id": "20",
+            "Literal": "http://localhost:11000/api/values/karaliste-sorgusu"
+          }
+        },
+        {
+          "$id": "21",
+          "name": "Method",
+          "expressions": {
+            "$id": "22",
+            "Literal": "POST"
+          }
+        },
+        {
+          "$id": "23",
+          "name": "Content",
+          "expressions": {
+            "$id": "24"
+          }
+        },
+        {
+          "$id": "25",
+          "name": "ContentType",
+          "expressions": {
+            "$id": "26",
+            "Literal": ""
+          }
+        },
+        {
+          "$id": "27",
+          "name": "ReadContent",
+          "expressions": {
+            "$id": "28",
+            "Literal": "true"
+          }
+        },
+        {
+          "$id": "29",
+          "name": "ResponseContentParserName",
+          "expressions": {
+            "$id": "30",
+            "Literal": ""
+          }
+        },
+        {
+          "$id": "31",
+          "name": "ResponseContentTargetType",
+          "expressions": {
+            "$id": "32"
+          }
+        },
+        {
+          "$id": "33",
+          "name": "SupportedStatusCodes",
+          "expressions": {
+            "$id": "34"
+          }
+        },
+        {
+          "$id": "35",
+          "name": "Authorization",
+          "expressions": {
+            "$id": "36"
+          }
+        },
+        {
+          "$id": "37",
+          "name": "RequestHeaders",
+          "expressions": {
+            "$id": "38"
+          }
+        }
+      ],
+      "propertyStorageProviders": {
+        "$id": "39"
+      }
+    },
+    {
+      "$id": "40",
+      "activityId": "a56a4d2e-3e7c-4bc6-9279-3c12b4c03ef1",
+      "type": "State",
+      "name": "Approval",
+      "displayName": "State",
+      "persistWorkflow": false,
+      "loadWorkflowContext": false,
+      "saveWorkflowContext": false,
+      "properties": [
+        {
+          "$id": "41",
+          "name": "StateName",
+          "expressions": {
+            "$id": "42",
+            "Literal": "Approval"
+          }
+        },
+        {
+          "$id": "43",
+          "name": "Transitions",
+          "expressions": {
+            "$id": "44",
+            "Json": "[\"Approval\"]"
+          }
+        }
+      ],
+      "propertyStorageProviders": {
+        "$id": "45"
+      }
+    }
+  ],
+  "connections": [
+    {
+      "$id": "46",
+      "sourceActivityId": "a9d069e0-de78-4a67-97c8-89725bdab814",
+      "targetActivityId": "6644935c-d46b-4073-9ab7-f35718023307",
+      "outcome": "Done"
+    },
+    {
+      "$id": "47",
+      "sourceActivityId": "6644935c-d46b-4073-9ab7-f35718023307",
+      "targetActivityId": "988041f3-3e7e-4477-a5ec-76ff5f84daad",
+      "outcome": "Approval_proposal"
+    },
+    {
+      "$id": "48",
+      "sourceActivityId": "988041f3-3e7e-4477-a5ec-76ff5f84daad",
+      "targetActivityId": "0ce6d53c-dc11-4c5a-84b2-bd1c0db69fad",
+      "outcome": "Done"
+    },
+    {
+      "$id": "49",
+      "sourceActivityId": "0ce6d53c-dc11-4c5a-84b2-bd1c0db69fad",
+      "targetActivityId": "a56a4d2e-3e7c-4bc6-9279-3c12b4c03ef1",
+      "outcome": "Done"
+    }
+  ],
+  "id": "86c2803d9e3f4476a539070bcfbf9566"
+}

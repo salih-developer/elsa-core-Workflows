@@ -1,0 +1,36 @@
+@model Proposal.Form.Models.Customer
+@{
+    ViewData["Title"] = "Home Page";
+}
+<h4>
+    Elsa Workflow POC Project
+</h4>
+@*<h4>Create Customer</h4>
+<div class="row">
+    @using (Html.BeginForm("Post", "Home", FormMethod.Post))
+    {
+        <table>
+            <tr>
+                <td>Name</td>
+                <td>@Html.TextBoxFor(x=>x.Name)</td>
+            </tr>
+            <tr>
+                <td>Surname</td>
+                <td>@Html.TextBoxFor(x=>x.Surname)</td>
+            </tr>
+            <tr>
+                <td>CompanyName</td>
+                <td>@Html.TextBoxFor(x=>x.CompanyName)</td>
+            </tr>
+            <tr>
+                <td>Address</td>
+                <td>@Html.TextAreaFor(x=>x.Address)</td>
+            </tr>
+            <tr>
+                <td><button>Send</button></td>
+                <td></td>
+            </tr>
+        </table>
+    }
+</div>
+*@

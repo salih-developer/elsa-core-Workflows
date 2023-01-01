@@ -1,0 +1,32 @@
+@model List<Proposal.Form.Models.Proposal>
+@{
+}
+
+<h4>Teklif Havuzu</h4>
+<div class="row">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <td>id</td>
+                <td>Name</td>
+                <td>CreateDate</td>
+                <td>IsApproval</td>
+                <td>Link</td>
+            </tr>
+        </thead>
+
+        @{
+
+            foreach (Proposal.Form.Models.Proposal item in Model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Name</td>
+                    <td>@item.CreateDate.ToString("dd.MM.yyyy hh:mm")</td>
+                    <td>@item.IsApproval</td>
+                    <td>@Html.ActionLink("Approval","ProposalApprovalResult","Proposal",new{id=item.Id})</td>
+                </tr>
+            }
+        }
+    </table>
+</div>
